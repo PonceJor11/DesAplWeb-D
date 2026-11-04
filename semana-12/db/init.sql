@@ -1,0 +1,30 @@
+CREATE DATABASE IF NOT EXISTS bd_feign_cliente;
+CREATE DATABASE IF NOT EXISTS bd_feign_producto;
+CREATE DATABASE IF NOT EXISTS bd_feign_pedido;
+
+USE bd_feign_cliente;
+CREATE TABLE IF NOT EXISTS clientes (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(80) NOT NULL,
+  apellidos VARCHAR(120) NOT NULL,
+  direccion VARCHAR(200) NOT NULL,
+  estado VARCHAR(10) NOT NULL,
+  nro_dni VARCHAR(8) NOT NULL UNIQUE
+);
+
+USE bd_feign_producto;
+CREATE TABLE IF NOT EXISTS productos (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(120) NOT NULL,
+  precio DECIMAL(10,2) NOT NULL
+);
+
+USE bd_feign_pedido;
+CREATE TABLE IF NOT EXISTS pedidos (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  cliente_id BIGINT NOT NULL,
+  producto_id BIGINT NOT NULL,
+  cantidad INT NOT NULL,
+  estado VARCHAR(10) NOT NULL,
+  fecha DATE NOT NULL
+);
