@@ -1,0 +1,13 @@
+# ===== PERFIL PROD (valores desde variables de entorno) =====
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://mysql-prod:3306/bd_cliente?useSSL=true&serverTimezone=America/Lima}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: validate    # NO modifica el esquema: usar db/init.sql
+    show-sql: false
+logging:
+  level:
+    com.empresa: INFO
