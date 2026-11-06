@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: producto-service
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}   # dev por defecto; en produccion: prod
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  jpa:
+    open-in-view: false
